@@ -1125,7 +1125,7 @@ function Contact() {
               <div className="sg-form-success" role="status" aria-live="polite">
                 <CheckCircle2 size={44} color={C.sprout} aria-hidden="true" />
                 <h3>Message ready to send</h3>
-                <p>Thanks {form.name || "friend"}. We will get back to you soon.</p>
+                <p>We will get back to you soon.</p>
               </div>
             ) : (
               <div className="sg-form">
