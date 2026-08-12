@@ -1020,7 +1020,7 @@ function Team() {
           <h1 className="sg-h2 sg-h2-lg">The people behind the builds.</h1>
           <p className="sg-body sg-measure">
             STEMgage is run by students who believe the best way to learn STEM is to make something with
-            your hands. Photos and personal stories are placeholders for now.
+            your hands.
           </p>
         </Reveal>
 
