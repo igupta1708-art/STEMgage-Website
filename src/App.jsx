@@ -21,12 +21,13 @@ import reyhaanPhoto from "./images/rey.jpg";
 import abhiPhoto from "./images/abhi.jpg";
 import mayaPhoto from "./images/maya.jpg";
 import panavPhoto from "./images/panav.jpg";
+import nikhilPhoto from "./images/nikhil.jpg";
+import micahPhoto from "./images/micah.jpg";
 
-import logo from "./images/logo.jpg"
+import logo from "./images/drawing.svg"
 
 import emailjs from "@emailjs/browser";
 
-import { supabase } from "./supabase";
 /* ----------------------------------------------------------------------------
    STEMgage — hands-on STEM for elementary kids, at the library, free.
    Single-file React site. Brand color via CSS vars + inline style; Tailwind
@@ -101,24 +102,112 @@ const challenges = [
 
 const events = [
   {
+    branch: "Wellington Library",
+    date: "Sat, Aug 30, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Building2,
+    g1: C.cobalt,
+    g2: C.sprout,
+    link: "https://pbclibrary.bibliocommons.com/v2/events?_gl=11shc2x_gaMTI0MzM4NTk2Mi4xNzg1MjY2Mjgw_ga_G99DMMNG39*czE3ODUyNjYyNzkkbzEkZzAkdDE3ODUyNjYyODAkajU5JGwwJGgw&startDate=2026-08-30&endDate=2026-08-30&locations=WELLINGTON"
+  },
+
+  {
+    branch: "Palm Beach Gardens Branch Library",
+    date: "Sat, Sep 12, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Egg,
+    g1: C.sunny,
+    g2: C.coral,
+    link: "https://pbclibrary.bibliocommons.com/v2/events?_gl=1*1rwxdlk*_ga*OTA4NTIyMjQ3LjE3ODYwNTkyMDM.*_ga_G99DMMNG39*czE3ODYwNTkyMDMkbzEkZzEkdDE3ODYwNTk1NzQkajYwJGwwJGgw&types=66faee1b93c6a32800d41494&locations=GARDENS&startDate=2026-09-12&endDate=2026-09-12"
+  },
+
+  {
+    branch: "Wellington Library",
+    date: "Sun, Sep 13, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Orbit,
+    g1: C.cobalt,
+    g2: C.coral,
+    link: "https://pbclibrary.bibliocommons.com/v2/events?_gl=1*1rwxdlk*_ga*OTA4NTIyMjQ3LjE3ODYwNTkyMDM.*_ga_G99DMMNG39*czE3ODYwNTkyMDMkbzEkZzEkdDE3ODYwNTk1NzQkajYwJGwwJGgw&types=66faee1b93c6a32800d41494&startDate=2026-09-13&endDate=2026-09-13&locations=WELLINGTON"
+  },
+
+  {
+    branch: "Wellington Library",
+    date: "Sun, Sep 27, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Ship,
+    g1: C.sprout,
+    g2: C.cobalt,
+    link: "https://pbclibrary.bibliocommons.com/v2/events?_gl=1*1rwxdlk*_ga*OTA4NTIyMjQ3LjE3ODYwNTkyMDM.*_ga_G99DMMNG39*czE3ODYwNTkyMDMkbzEkZzEkdDE3ODYwNTk1NzQkajYwJGwwJGgw&types=66faee1b93c6a32800d41494&startDate=2026-09-27&locations=WELLINGTON&endDate=2026-09-27"
+  },
+
+  {
+    branch: "Wellington Library",
+    date: "Sun, Oct 4, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Waypoints,
+    g1: C.sunny,
+    g2: C.sprout,
+  },
+
+  {
+    branch: "West Boca Branch Library",
+    date: "Sat, Oct 17, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Sparkles,
+    g1: C.coral,
+    g2: C.cobalt,
+  },
+
+  {
+    branch: "Palm Beach Gardens Branch Library",
+    date: "Sat, Oct 24, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Egg,
+    g1: C.sunny,
+    g2: C.coral,
+  },
+
+  {
   branch: "Wellington Library",
-  date: "Sat, Aug 30, 2026",
+  date: "Sun, Nov 15, 2026",
+  time: "2:00 – 3:30 PM",
+  icon: Waypoints,
+  g1: C.sunny,
+  g2: C.sprout,
+},
+{
+  branch: "Palm Beach Gardens Branch Library",
+  date: "Sat, Nov 21, 2026",
+  time: "2:00 – 3:30 PM",
+  icon: Ship,
+  g1: C.sprout,
+  g2: C.cobalt,
+},
+{
+  branch: "Wellington Library",
+  date: "Sun, Nov 29, 2026",
   time: "2:00 – 3:30 PM",
   icon: Building2,
   g1: C.cobalt,
   g2: C.sprout,
-  link: "https://pbclibrary.bibliocommons.com/v2/events?_gl=1*1shc2x*_ga*MTI0MzM4NTk2Mi4xNzg1MjY2Mjgw*_ga_G99DMMNG39*czE3ODUyNjYyNzkkbzEkZzAkdDE3ODUyNjYyODAkajU5JGwwJGgw&startDate=2026-08-30&endDate=2026-08-30&locations=WELLINGTON"
 },
-  { title: "Egg Drop Engineering", branch: "Boca Raton Library, Downtown", date: "Sat, Jul 26, 2026", time: "2:00 – 3:30 PM",
-    icon: Egg, g1: C.sunny, g2: C.coral, desc: "Design a landing pad, drop the egg, and find out if your plan holds up." },
-  { title: "Marble Run Mania", branch: "Parkland Library", date: "Sat, Aug 9, 2026", time: "10:30 AM – 12:00 PM",
-    icon: Orbit, g1: C.cobalt, g2: C.coral, desc: "Angles, ramps, and gravity. Keep your marble rolling the longest." },
-  { title: "Foil Boat Float-Off", branch: "Wellington Library", date: "Sat, Aug 23, 2026", time: "2:00 – 3:30 PM",
-    icon: Ship, g1: C.sprout, g2: C.cobalt, desc: "Shape a foil boat that carries the most weight before it goes under." },
-  { title: "Paper Bridge Build", branch: "Boca Raton Library, Spanish River", date: "Sat, Sep 6, 2026", time: "2:00 – 3:30 PM",
-    icon: Waypoints, g1: C.sunny, g2: C.sprout, desc: "Span the gap with paper, then load it up and test your design." },
-  { title: "Mystery Build Day", branch: "Parkland Library", date: "Sat, Sep 20, 2026", time: "10:30 AM – 12:00 PM",
-    icon: Sparkles, g1: C.coral, g2: C.cobalt, desc: "Surprise challenge, mystery materials. Show up and find out." },
+{
+    branch: "Wellington Library",
+    date: "Sun, Dec 6, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Hammer,
+    g1: C.cobalt,
+    g2: C.sprout,
+  },
+  {
+    branch: "Wellington Library",
+    date: "Sun, Dec 13, 2026",
+    time: "2:00 – 3:30 PM",
+    icon: Lightbulb,
+    g1: C.sunny,
+    g2: C.coral,
+  },
 ];
 
 const team = {
@@ -127,12 +216,13 @@ const team = {
       name: "Ishaan Gupta",
       role: "Co-Founder",
       photo: ishaanPhoto,
-      bio: "Ishaan Gupta is really into math, engineering, and speech and debate. He enjoys solving challenging problems, and in his free time you can usually find him playing chess or table tennis. Ishaan likes learning new things and brings a lot of energy to whatever he’s working on."
+      bio: "Ishaan is really into math, engineering, and speech and debate. He enjoys solving challenging problems, and in his free time you can usually find him playing chess or table tennis. Ishaan likes learning new things and brings a lot of energy to whatever he’s working on."
     },
     {
       name: "Nikhil Venigalla",
       role: "Co-Founder",
-      bio: "Write Nikhil's biography here."
+      photo: nikhilPhoto,
+      bio: "Nikhil is a fan of all things science and math. He enjoys spending time working on problems and puzzles as well as spending time with his friends. His hobbies are playing video games and reading."
     },
     {
       name: "Neal Nayak",
@@ -147,36 +237,37 @@ const team = {
       name: "Neel Bharambe",
       role: "Volunteer",
       photo: neelPhoto,
-      bio: "Neel Bharambe is a pre-engineering student who loves building things that help people, from 3D-printed assistive devices to hands-on STEM lessons for kids. He plays varsity soccer and is involved in math competitions, robotics, and CAD design, and believes the best way to learn engineering is to make something real."
+      bio: "Neel is a pre-engineering student who loves building things that help people, from 3D-printed assistive devices to hands-on STEM lessons for kids. He plays varsity soccer and is involved in math competitions, robotics, and CAD design, and believes the best way to learn engineering is to make something real."
     },
     {
       name: "Reyhaan Thummadi",
       role: "Volunteer",
       photo: reyhaanPhoto,
-      bio: "Reyhaan Thummadi is a math competition and engineering student who wants his creativity to be seen in producing fun activities for children inspired by activities he has done in the past. He also plays the drums, swims, does taekwondo, and plays video games."
+      bio: "Reyhaan is a math competition and engineering student who wants his creativity to be seen in producing fun activities for children inspired by activities he has done in the past. He also plays the drums, swims, does taekwondo, and plays video games."
     },
     {
       name: "Abhi Yalamanchili",
       role: "Volunteer",
       photo: abhiPhoto,
-      bio: "Abhinav Yalamanchili is a Pre-Med student with a passion for science, math, and spreading a love for STEM across today’s youth. He has been tutoring kids of all ages for 4+ years and has a genuine interest in teaching as well as connecting with others. His biggest hobbies are playing the piano, tennis, basketball, and video games."
+      bio: "Abhinav is a Pre-Med student with a passion for science, math, and spreading a love for STEM across today’s youth. He has been tutoring kids of all ages for 4+ years and has a genuine interest in teaching as well as connecting with others. His biggest hobbies are playing the piano, tennis, basketball, and video games."
     },
     {
       name: "Maya Iyer",
       role: "Volunteer",
       photo: mayaPhoto,
-      bio: "Maya Iyer is a driven student with a strong interest in healthcare. She is deeply involved in both medicine and music, from assisting in hospital settings to performing on the piano. With a passion for learning and teaching, she aims to apply her knowledge to foster engaging and meaningful educational experiences for children."
+      bio: "Maya is a driven student with a strong interest in healthcare. She is deeply involved in both medicine and music, from assisting in hospital settings to performing on the piano. With a passion for learning and teaching, she aims to apply her knowledge to foster engaging and meaningful educational experiences for children."
     },
     {
       name: "Panav Patel",
       role: "Volunteer",
       photo: panavPhoto,
-      bio: "Panav Patel, an avid engineer and part of his school’s robotics team, wishes to share his technical expertise with students of all ages and serve his community. Along with robotics, he is experienced in speech and debate and loves to play golf."
+      bio: "Panav is an avid engineer and part of his school’s robotics team, wishing to share his technical expertise with students of all ages and serve his community. Along with robotics, he is experienced in speech and debate and loves to play golf."
     },
     {
       name: "Micah Wang",
       role: "Volunteer",
-      bio: "Write Micah's biography here."
+      photo: micahPhoto,
+      bio: "Micah is super into math, debate, and coding. In his free time, you'll usually find him playing the piano, playing chess, or hopping on video games with his friends. He loves figuring out how stuff works and brings a lot of fun energy to the team."
     },
   ],
 };
@@ -454,7 +545,7 @@ function Home({ go }) {
         <div className="sg-container sg-stats">
           <StatBadge value="100+" label="kids served so far" color={C.cobalt} />
           <StatBadge value="$0" label="cost to every family" color={C.sprout} />
-          <StatBadge value="7" label="signature build challenges" color={C.sunnyDeep} />
+          <StatBadge value="8" label="signature build challenges" color={C.sunnyDeep} />
           <StatBadge value="2025" label="founded, and just getting started" color={C.coral} />
         </div>
       </section>
@@ -481,7 +572,7 @@ function Home({ go }) {
               />
               <div className="sg-mission-photo-caption">
                 <span className="sg-mono-label">HANDS-ON LEARNING</span>
-                <strong>Kids at the build table</strong>
+                <strong>Brainstorming at the build table</strong>
               </div>
             </div>
           </Reveal>
@@ -1016,12 +1107,14 @@ function Contact() {
   </a>
 
   <a
-    href="#"
-    aria-label="STEMgage on Facebook"
-    className="sg-social"
-  >
-    <Facebook size={20} />
-  </a>
+  href="https://www.facebook.com/profile.php?id=61580664672920&sk=about"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="STEMgage on Facebook"
+  className="sg-social"
+>
+  <Facebook size={20} />
+</a>
 </div>
           </Reveal>
         </div>
@@ -1105,44 +1198,36 @@ function Footer({ go }) {
   const [submitting, setSubmitting] = useState(false);
 
   async function subscribe() {
-    const trimmedEmail = email.trim();
-    setSubError("");
+  const trimmedEmail = email.trim();
+  setSubError("");
 
-    if (!/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
-      setSubError("Enter a valid email address.");
-      return;
-    }
-
-    if (!supabase) {
-      setSubError("Newsletter sign-up is being set up. Please check back shortly.");
-      return;
-    }
-
-    setSubmitting(true);
-    try {
-      const { error } = await supabase
-        .from("newsletter")
-        .insert([{ email: trimmedEmail }]);
-
-      if (error) {
-        if (error.code === "23505") {
-          setSubError("You’re already on the list!");
-        } else {
-          console.error("Newsletter subscription error:", error);
-          setSubError("We couldn’t add you right now. Please try again.");
-        }
-        return;
-      }
-
-      setSub(true);
-      setEmail("");
-    } catch (error) {
-      console.error("Newsletter subscription error:", error);
-      setSubError("We couldn’t add you right now. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
+  if (!/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
+    setSubError("Enter a valid email address.");
+    return;
   }
+
+  setSubmitting(true);
+
+  try {
+    await emailjs.send(
+      "service_lech7tl",
+      "template_ua5drwe",
+      {
+        email: trimmedEmail,
+        time: new Date().toLocaleString(),
+      },
+      "A6St6BLkKs1SyZO6m"
+    );
+
+    setSub(true);
+    setEmail("");
+  } catch (error) {
+    console.error(error);
+    setSubError("Something went wrong. Please try again.");
+  } finally {
+    setSubmitting(false);
+  }
+}
   return (
     <footer className="sg-footer">
       <div className="sg-grid-overlay" aria-hidden="true" />
@@ -1165,12 +1250,14 @@ function Footer({ go }) {
   </a>
 
   <a
-    href="#"
-    aria-label="STEMgage on Facebook"
-    className="sg-social sg-social-dark"
-  >
-    <Facebook size={18} />
-  </a>
+  href="https://www.facebook.com/profile.php?id=61580664672920&sk=about"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="STEMgage on Facebook"
+  className="sg-social sg-social-dark"
+>
+  <Facebook size={18} />
+</a>
 </div>
         </div>
 
@@ -1191,7 +1278,7 @@ function Footer({ go }) {
           <h4>Stay in the loop</h4>
           <p className="sg-footer-blurb">Get a heads up before the next event.</p>
           {sub ? (
-            <p className="sg-news-thanks" role="status"><CheckCircle2 size={16} color={C.sprout} aria-hidden="true" /> You're on the list.</p>
+            <p className="sg-news-thanks" role="status"><CheckCircle2 size={16} color={C.sprout} aria-hidden="true" /> Thanks for signing up! We'll let you know about upcoming STEMgage events.</p>
           ) : (
             <div className="sg-news-form">
               <input
@@ -1324,8 +1411,8 @@ h1,h2,h3,h4{ font-family:'Fredoka',sans-serif; color:var(--ink); line-height:1.1
 .sg-logo-mark{ width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--cobalt),var(--sprout)); box-shadow:0 4px 10px rgba(43,107,239,.3); }
 .sg-logo-text{ font-family:'Fredoka',sans-serif; font-weight:700; font-size:22px; color:var(--ink); }
 .sg-logo-img{
-    width:42px;
-    height:42px;
+    width:48px;
+    height:48px;
     object-fit:contain;
     display:block;
     margin-right:10px;
