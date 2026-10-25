@@ -44,7 +44,7 @@ const C = {
 // Vite imports every event photo from the matching folder, keeping galleries easy to update.
 // Videos are intentionally curated: several uploaded originals are hundreds of MB to 1 GB.
 const eventPhotoModules = import.meta.glob(
-  "./images/{spaghetti tower,marshmallow launcher,paper bridge,tinfoil boat,paper marble track,egg drop challenge,paper marble track 2,codebusting,cantilever,grabber,paper marble track 3,target takedown}/*.{jpg,jpeg,JPG,JPEG}",
+  "./images/{spaghetti tower,marshmallow launcher,paper bridge,tinfoil boat,paper marble track,egg drop challenge,paper marble track 2,codebusting,cantilever,grabber,paper marble track 3,target takedown,castle crashers,spinning tops,spaghetti tower_gardens}/*.{jpg,jpeg,JPG,JPEG}",
   { eager: true, import: "default", query: "?url" }
 );
 const paperBridgeVideo = new URL("./images/paper bridge/IMG_0130.mp4", import.meta.url).href;
@@ -76,13 +76,16 @@ const pastEventHighlights = [
   { key: "bridge", name: "Paper Bridge", date: "March 1, 2026", location: "Wellington Library", tagline: "Fold, reinforce, and see how much your bridge can hold.", media: { src: paperBridgeVideo, type: "video" }, g1: C.sunny, g2: C.sprout },
   { key: "tinfoil", name: "Tinfoil Boat", date: "March 15, 2026", location: "Wellington Library", tagline: "Shape foil into a boat that stays afloat under pressure.", media: eventPhoto("tinfoil boat", "IMG_0170.jpg"), g1: C.sprout, g2: C.cobalt },
   { key: "marble-one", name: "Paper Marble Track", date: "May 24, 2026", location: "Wellington Library", tagline: "Make a paper path that keeps the marble rolling.", media: eventPhoto("paper marble track", "IMG_1125.jpg"), g1: C.cobalt, g2: C.coral },
-  { key: "egg", name: "Egg Drop Landing Pad Challenge", date: "June 7, 2027", location: "Wellington Library", tagline: "Create a landing pad that gives your egg a fighting chance.", media: eventPhoto("egg drop challenge", "IMG_9183.jpg"), g1: C.sunny, g2: C.coral },
+  { key: "egg", name: "Egg Drop Landing Pad Challenge", date: "June 7, 2026", location: "Wellington Library", tagline: "Create a landing pad that gives your egg a fighting chance.", media: eventPhoto("egg drop challenge", "IMG_9183.jpg"), g1: C.sunny, g2: C.coral },
   { key: "marble-two", name: "Paper Marble Track", date: "June 21, 2026", location: "Wellington Library", tagline: "New ramps, sharper turns, and more marble momentum.", media: eventPhoto("paper marble track 2", "IMG_9423.jpg"), g1: C.cobalt, g2: C.sprout },
   { key: "codebusting", name: "Codes and Codebusting", date: "July 12, 2026", location: "Wellington Library", tagline: "Spot patterns, crack clues, and unlock the message.", media: eventPhoto("codebusting", "IMG_2622.jpg"), g1: C.sunny, g2: C.cobalt },
   { key: "cantilever", name: "Cantilever", date: "July 26, 2026", location: "Wellington Library", tagline: "Balance, build, and test a structure that reaches out.", media: eventPhoto("cantilever", "IMG_0970.JPG"), g1: C.sprout, g2: C.cobalt },
   { key: "grabber", name: "Grabber", date: "August 30, 2026", location: "Wellington Library", tagline: "Engineer a grabber that can pick up and hold on.", media: eventPhoto("grabber", "IMG_1137.JPG"), g1: C.cobalt, g2: C.sunny },
   { key: "marble-three", name: "Paper Marble Track", date: "September 12, 2026", location: "Palm Beach Gardens Branch Library", tagline: "Twists, drops, and towering tracks built to keep the marble rolling.", media: eventPhoto("paper marble track 3", "IMG_1424.jpg"), g1: C.coral, g2: C.cobalt },
   { key: "target-takedown", name: "Target Takedown", date: "September 13, 2026", location: "Wellington Library", tagline: "Build a launcher, take aim, and hit the target.", media: eventPhoto("target takedown", "IMG_1232.JPEG"), g1: C.sprout, g2: C.coral },
+  { key: "castle-crashers", name: "Castle Crashers", date: "September 27, 2026", location: "Wellington Library", tagline: "Build a castle, then put it to the test against the crasher.", media: eventPhoto("castle crashers", "IMG_1329.JPG"), g1: C.cobalt, g2: C.coral },
+  { key: "spinning-tops", name: "Spinning Tops", date: "October 4, 2026", location: "Wellington Library", tagline: "Craft a top engineered to spin longer than everyone else's.", media: eventPhoto("spinning tops", "IMG_1376.JPG"), g1: C.sunny, g2: C.cobalt },
+  { key: "spaghetti-two", name: "Spaghetti Tower", date: "October 24, 2026", location: "Palm Beach Gardens Branch Library", tagline: "A second spaghetti tower showdown, this time in the Gardens.", media: eventPhoto("spaghetti tower_gardens", "IMG_1592.jpg"), g1: C.cobalt, g2: C.sprout },
 ];
 
 const challenges = [
@@ -104,36 +107,6 @@ const challenges = [
 ];
 
 const events = [
-  {
-    branch: "Wellington Library",
-    date: "Sun, Sep 27, 2026",
-    time: "2:00 – 3:30 PM",
-    icon: Ship,
-    g1: C.sprout,
-    g2: C.cobalt,
-    link: "https://pbclibrary.bibliocommons.com/v2/events?_gl=1*1rwxdlk*_ga*OTA4NTIyMjQ3LjE3ODYwNTkyMDM.*_ga_G99DMMNG39*czE3ODYwNTkyMDMkbzEkZzEkdDE3ODYwNTk1NzQkajYwJGwwJGgw&types=66faee1b93c6a32800d41494&startDate=2026-09-27&locations=WELLINGTON&endDate=2026-09-27"
-  },
-
-  {
-    branch: "Wellington Library",
-    date: "Sun, Oct 4, 2026",
-    time: "2:00 – 3:30 PM",
-    icon: Waypoints,
-    g1: C.sunny,
-    g2: C.sprout,
-    link: "https://pbclibrary.bibliocommons.com/events/6a79ea83b44674e2601cf8ce"
-  },
-
-  {
-    branch: "Palm Beach Gardens Branch Library",
-    date: "Sat, Oct 24, 2026",
-    time: "2:00 – 3:30 PM",
-    icon: Egg,
-    g1: C.sunny,
-    g2: C.coral,
-    link: "https://pbclibrary.bibliocommons.com/events/6a85e348aafa6100295da306"
-  },
-
   {
   branch: "Wellington Library",
   date: "Sun, Nov 15, 2026",
@@ -506,9 +479,9 @@ function Home({ go }) {
       {/* stats */}
       <section className="sg-section sg-stats-band">
         <div className="sg-container sg-stats">
-          <StatBadge value="150+" label="kids served so far" color={C.cobalt} />
+          <StatBadge value="200+" label="kids served so far" color={C.cobalt} />
           <StatBadge value="$0" label="cost to every family" color={C.sprout} />
-          <StatBadge value="10" label="signature build challenges" color={C.sunnyDeep} />
+          <StatBadge value="12" label="signature build challenges" color={C.sunnyDeep} />
           <StatBadge value="2025" label="founded, and just getting started" color={C.coral} />
         </div>
       </section>
@@ -634,7 +607,7 @@ function About() {
         <Reveal delay={80}>
           <h2 className="sg-h3">Where we are headed</h2>
           <p className="sg-body">
-            We have already served more than 100 elementary students at the Wellington Library branch. Now we
+            We have already served more than 200 elementary students at the Wellington Library branch. Now we
             are expanding across Palm Beach County, with events coming to Boca Raton libraries, Parkland
             libraries, Palm Beach Gardens Libraries, and the Boys &amp; Girls Clubs of Palm Beach County. Our goal is to reach the
             communities that need hands-on STEM the most.
@@ -711,7 +684,7 @@ function Impact() {
     {
       id: "egg-drop-landing-pad",
       challenge: "Egg Drop Landing Pad Challenge",
-      date: "June 7, 2027",
+      date: "June 7, 2026",
       location: "Wellington Library",
       summary: "Young engineers sketched, padded, tested, and refined their egg-protection designs.",
       accent: C.coral,
@@ -771,6 +744,33 @@ function Impact() {
       accent: C.sprout,
       media: eventPhotos("target takedown"),
     },
+    {
+      id: "castle-crashers",
+      challenge: "Castle Crashers",
+      date: "September 27, 2026",
+      location: "Wellington Library",
+      summary: "Teams fortified cardboard castles and then faced off against the crasher to see what could withstand it.",
+      accent: C.cobalt,
+      media: eventPhotos("castle crashers"),
+    },
+    {
+      id: "spinning-tops",
+      challenge: "Spinning Tops",
+      date: "October 4, 2026",
+      location: "Wellington Library",
+      summary: "Builders balanced weight and shape to engineer tops that could out-spin the competition.",
+      accent: C.sunnyDeep,
+      media: eventPhotos("spinning tops"),
+    },
+    {
+      id: "spaghetti-tower-2",
+      challenge: "Spaghetti Tower",
+      date: "October 24, 2026",
+      location: "Palm Beach Gardens Branch Library",
+      summary: "A second spaghetti tower event brought the classic challenge to our Palm Beach Gardens families.",
+      accent: C.sprout,
+      media: eventPhotos("spaghetti tower_gardens"),
+    },
   ];
   const filtered = pastEvents.filter((event) =>
     `${event.challenge} ${event.location}`.toLowerCase().includes(q.toLowerCase())
@@ -793,7 +793,7 @@ function Impact() {
       <div className="sg-container">
         <Reveal>
           <Eyebrow color={C.coral}>IMPACT</Eyebrow>
-          <h1 className="sg-h2 sg-h2-lg">What 150+ kids have already built.</h1>
+          <h1 className="sg-h2 sg-h2-lg">What 200+ kids have already built.</h1>
           <p className="sg-body sg-measure">
             Every event ends with finished projects, big grins, and a few parents asking when the next one
             is. Pick a challenge to step inside that day&apos;s photo gallery.
